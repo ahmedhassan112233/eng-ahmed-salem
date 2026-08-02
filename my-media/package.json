@@ -1,0 +1,14 @@
+{
+  "name": "ai-marketing-mentor-hub",
+  "version": "1.0.0",
+  "description": "AI Marketing Mentor Hub Vercel Serverless Backend and Frontend",
+  "type": "module",
+  "main": "api/chat.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

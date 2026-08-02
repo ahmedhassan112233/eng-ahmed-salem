@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أكاديمية التسويق والمساعد الذكي | AI Marketing Mentor Hub</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-800 px-4 lg:px-8 py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <!-- Logo & Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center text-white text-xl shadow-lg shadow-indigo-500/20 animated-glow">
+          <i class="fa-solid fa-brain-circuit"></i>
+        </div>
+        <div>
+          <h1 class="text-lg lg:text-xl font-bold tracking-tight flex items-center gap-2">
+            <span>أكاديمية التسويق والمساعد الذكي</span>
+            <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 hidden sm:inline-block">PRO AI</span>
+          </h1>
+          <p class="text-xs text-slate-400 hidden sm:block">منصتك التفاعلية لإدارة وتحليل الحملات والاستراتيجيات التسويقية</p>
+        </div>
+      </div>
+
+      <!-- Actions / Settings -->
+      <div class="flex items-center gap-2.5">
+        <button id="btn-settings" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 text-xs sm:text-sm font-medium transition flex items-center gap-2">
+          <i class="fa-solid fa-key text-amber-400"></i>
+          <span class="hidden md:inline">مفتاح API</span>
+        </button>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>المساعد متصل</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar Tabs -->
+  <nav class="glass-panel border-b border-slate-800/80 px-4 py-2 sticky top-[69px] z-30">
+    <div class="max-w-7xl mx-auto flex items-center justify-start md:justify-center gap-2 overflow-x-auto no-scrollbar py-1">
+      
+      <button data-tab="tab-chat" class="nav-tab active px-4 py-2.5 rounded-xl text-sm font-semibold transition flex items-center gap-2 text-slate-300 border border-transparent whitespace-nowrap">
+        <i class="fa-solid fa-comments text-indigo-400"></i>
+        <span>المساعد الذكي (AI Mentor)</span>
+      </button>
+
+      <button data-tab="tab-library" class="nav-tab px-4 py-2.5 rounded-xl text-sm font-semibold transition flex items-center gap-2 text-slate-300 border border-transparent whitespace-nowrap">
+        <i class="fa-solid fa-book-bookmark text-purple-400"></i>
+        <span>مكتبة الاستراتيجيات (200+)</span>
+      </button>
+
+      <button data-tab="tab-analyzer" class="nav-tab px-4 py-2.5 rounded-xl text-sm font-semibold transition flex items-center gap-2 text-slate-300 border border-transparent whitespace-nowrap">
+        <i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i>
+        <span>محلل الصور والنتائج</span>
+      </button>
+
+      <button data-tab="tab-recommender" class="nav-tab px-4 py-2.5 rounded-xl text-sm font-semibold transition flex items-center gap-2 text-slate-300 border border-transparent whitespace-nowrap">
+        <i class="fa-solid fa-compass-drafting text-amber-400"></i>
+        <span>محرك التوصيات المخصصة</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 lg:p-8 space-y-6">
+
+    <!-- TAB 1: AI MENTOR CHAT -->
+    <section id="tab-chat" class="tab-content flex flex-col h-[calc(100vh-210px)] min-h-[550px] gap-4">
+      <!-- Quick Prompts Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs no-scrollbar">
+        <span class="text-slate-400 font-medium whitespace-nowrap flex items-center gap-1.5 px-2">
+          <i class="fa-solid fa-bolt text-amber-400"></i> اقتراحات سريعة:
+        </span>
+        <button class="quick-prompt-btn px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 whitespace-nowrap transition">
+          كيف أصلح CTR المنخفض في إعلانات Meta؟ 📉
+        </button>
+        <button class="quick-prompt-btn px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 whitespace-nowrap transition">
+          حل مشكلة ارتفاع تكلفة الرسالة في الواتساب 💬
+        </button>
+        <button class="quick-prompt-btn px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 whitespace-nowrap transition">
+          خطوات عمل A/B Testing احترافي للمتجر 🧪
+        </button>
+        <button class="quick-prompt-btn px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-300 whitespace-nowrap transition">
+          متى أستخدم CBO ومتى أستخدم ABO؟ ⚖️
+        </button>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div id="chat-container" class="flex-1 glass-panel rounded-2xl p-4 lg:p-6 overflow-y-auto space-y-4 border border-slate-800 shadow-inner">
+        <!-- Initial Welcome Message -->
+        <div class="flex items-start gap-3.5 max-w-3xl">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white text-sm shrink-0 shadow-md">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="glass-card rounded-2xl rounded-tr-none p-4 text-slate-200 border border-slate-700/60 shadow-sm">
+            <div class="chat-message-content space-y-2 text-sm md:text-base">
+              <p class="font-bold text-indigo-400 flex items-center gap-2">
+                <span>أهلاً بك! أنا مستشارك التسويقي الذكي 🚀</span>
+              </p>
+              <p>أنا هنا لمساعدتك في تحليل نتائج الإعلانات، تشخيص المشاكل، وتطوير استراتيجيات الاستهداف والمحتوى الإعلاني.</p>
+              <p>يمكنك أن تسألني عن أي حيرة إعلانية، أو ترفع لي سكرين شوت لحملاتك لنتناقش فيها فوراً!</p>
+            </div>
+            <span class="text-[10px] text-slate-500 mt-2 block">الآن</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="glass-panel rounded-2xl p-3 border border-slate-800 flex flex-col gap-2 shadow-lg">
+        <!-- Selected Attachment Preview -->
+        <div id="chat-attachment-preview" class="hidden items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs text-slate-300">
+          <i class="fa-solid fa-image text-indigo-400"></i>
+          <span id="chat-attachment-name" class="truncate max-w-xs">صورة مرفقة</span>
+          <button id="chat-remove-attachment" class="mr-auto text-slate-400 hover:text-red-400 transition">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="chat-form" class="flex items-end gap-2">
+          <label for="chat-file-input" class="p-3 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-indigo-400 cursor-pointer border border-slate-700/80 transition shrink-0">
+            <i class="fa-solid fa-paperclip text-base"></i>
+            <input type="file" id="chat-file-input" accept="image/*" class="hidden">
+          </label>
+
+          <textarea id="chat-input" rows="1" placeholder="اكتب استفسارك التسويقي أو أرقام حملتك هنا..." class="flex-1 bg-transparent border-0 focus:ring-0 text-slate-200 placeholder-slate-500 text-sm md:text-base resize-none py-2.5 max-h-32 min-h-[42px]"></textarea>
+
+          <button type="submit" id="btn-send-chat" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30 flex items-center gap-2 shrink-0">
+            <span>إرسال</span>
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+          </button>
+
+          <button type="button" id="btn-clear-chat" title="مسح المحادثة" class="p-2.5 rounded-xl bg-slate-800 hover:bg-red-500/20 text-slate-400 hover:text-red-400 border border-slate-700/80 transition shrink-0">
+            <i class="fa-solid fa-trash-can text-sm"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- TAB 2: STRATEGY LIBRARY (200+) -->
+    <section id="tab-library" class="tab-content hidden space-y-6">
+      <!-- Filter & Search Controls -->
+      <div class="glass-panel rounded-2xl p-5 border border-slate-800 space-y-4">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="relative w-full md:w-96">
+            <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input type="text" id="strategy-search" placeholder="ابحث في أكثر من 200 استراتيجية تسويقية..." class="w-full glass-input pr-11 pl-4 py-2.5 rounded-xl text-sm">
+          </div>
+
+          <div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 text-xs no-scrollbar">
+            <span class="text-slate-400 font-medium whitespace-nowrap">الميزانية:</span>
+            <button data-budget="all" class="budget-filter-btn active px-3 py-1.5 rounded-lg bg-indigo-600/30 border border-indigo-500/50 text-indigo-300 font-medium whitespace-nowrap">الكل</button>
+            <button data-budget="Low" class="budget-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 font-medium whitespace-nowrap hover:text-slate-200">ميزانية محدودة 🟢</button>
+            <button data-budget="Medium" class="budget-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 font-medium whitespace-nowrap hover:text-slate-200">ميزانية متوسطة 🟡</button>
+            <button data-budget="High" class="budget-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 font-medium whitespace-nowrap hover:text-slate-200">توسع مالي High Scale 🔴</button>
+          </div>
+        </div>
+
+        <!-- Category Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs md:text-sm">
+          <button data-cat="all" class="cat-filter-btn active px-4 py-2 rounded-xl bg-indigo-600 text-white font-medium whitespace-nowrap shadow-md">جميع الأقسام</button>
+          <button data-cat="Meta Ads" class="cat-filter-btn px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 font-medium whitespace-nowrap hover:bg-slate-700 transition">Meta Ads (فيسبوك وإنستجرام)</button>
+          <button data-cat="Google Ads" class="cat-filter-btn px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 font-medium whitespace-nowrap hover:bg-slate-700 transition">Google Ads & Search</button>
+          <button data-cat="TikTok Ads" class="cat-filter-btn px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 font-medium whitespace-nowrap hover:bg-slate-700 transition">TikTok & Video Ads</button>
+          <button data-cat="E-Commerce" class="cat-filter-btn px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 font-medium whitespace-nowrap hover:bg-slate-700 transition">المتاجر الإلكترونية (E-Commerce)</button>
+          <button data-cat="Lead Generation" class="cat-filter-btn px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 font-medium whitespace-nowrap hover:bg-slate-700 transition">الرسائل وجمع العملاء المحتملين</button>
+          <button data-cat="Retention & LTV" class="cat-filter-btn px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 font-medium whitespace-nowrap hover:bg-slate-700 transition">إعادة الاستهداف والولاء</button>
+        </div>
+      </div>
+
+      <!-- Strategy Grid Container -->
+      <div id="strategies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Dynamic Cards rendered via JS -->
+      </div>
+    </section>
+
+    <!-- TAB 3: AD & SCREENSHOT ANALYZER -->
+    <section id="tab-analyzer" class="tab-content hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left Column: Upload & Options -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="glass-panel rounded-2xl p-6 border border-slate-800 space-y-4">
+            <h2 class="text-lg font-bold text-slate-100 flex items-center gap-2">
+              <i class="fa-solid fa-cloud-arrow-up text-pink-400"></i>
+              <span>رفع صورة الإعلان أو سكرين شوت الحملة</span>
+            </h2>
+
+            <!-- Dropzone Area -->
+            <div id="dropzone" class="border-2 border-dashed border-slate-700 hover:border-indigo-500/80 rounded-2xl p-8 text-center bg-slate-900/40 cursor-pointer transition flex flex-col items-center justify-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl">
+                <i class="fa-solid fa-file-image"></i>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-200">أسقط الصورة هنا أو اضغط للاختيار</p>
+                <p class="text-xs text-slate-500 mt-1">تدعم ملفات PNG, JPG, WEBP (حجم أقصى 10MB)</p>
+              </div>
+              <input type="file" id="analyzer-file-input" accept="image/*" class="hidden">
+            </div>
+
+            <!-- Image Preview Box -->
+            <div id="analyzer-preview-box" class="hidden relative rounded-xl overflow-hidden border border-slate-700 max-h-64 bg-black/40">
+              <img id="analyzer-preview-img" src="" alt="Preview" class="w-full h-full object-contain max-h-64">
+              <button id="btn-remove-analyzer-img" class="absolute top-2 left-2 p-2 rounded-lg bg-slate-900/80 hover:bg-red-600 text-white text-xs transition">
+                <i class="fa-solid fa-xmark"></i> إزالة الصورة
+              </button>
+            </div>
+
+            <!-- Analysis Goal Selection -->
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-slate-400 block">نوع التحليل المطلوب:</label>
+              <select id="analysis-type" class="w-full glass-input px-3.5 py-2.5 rounded-xl text-sm">
+                <option value="comprehensive">📊 تحليل شامل للأرقام والنتائج (CPA, CTR, ROAS)</option>
+                <option value="creative_copy">🎨 تحليل تصميم الإعلان والنص الإعلاني (Creative & Copy)</option>
+                <option value="troubleshoot">🔍 تشخيص سبب ارتفاع التكلفة وضياع الميزانية</option>
+                <option value="landing_page">🌐 تحليل صفحة الهبوط / نموذج التواصل</option>
+              </select>
+            </div>
+
+            <!-- Additional Notes Input -->
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-slate-400 block">ملاحظات إضافية عن الحملة (اختياري):</label>
+              <textarea id="analyzer-notes" rows="2" placeholder="مثال: هذه الحملة لمتجر ملابس، والميزانية اليومية 30$ وتكلفة الرسالة مرتفعة..." class="w-full glass-input p-3 rounded-xl text-sm resize-none"></textarea>
+            </div>
+
+            <button id="btn-run-analysis" class="w-full py-3 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-bold text-sm transition shadow-lg shadow-pink-600/25 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>تحليل بواسطة الذكاء الاصطناعي 🚀</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Analysis Results Output -->
+        <div class="lg:col-span-7">
+          <div class="glass-panel rounded-2xl p-6 border border-slate-800 min-h-[500px] flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                <h3 class="text-lg font-bold text-slate-100 flex items-center gap-2">
+                  <i class="fa-solid fa-square-poll-vertical text-emerald-400"></i>
+                  <span>نتيجة التشخيص والتقرير الفني</span>
+                </h3>
+                <span id="analysis-status-tag" class="text-xs font-medium px-2.5 py-1 rounded-full bg-slate-800 text-slate-400 border border-slate-700">بانتظام الصورة...</span>
+              </div>
+
+              <!-- Output Body -->
+              <div id="analysis-output" class="chat-message-content space-y-4 text-sm md:text-base text-slate-300">
+                <div class="text-center py-16 text-slate-500 space-y-3">
+                  <i class="fa-solid fa-chart-line-up text-4xl text-slate-700"></i>
+                  <p>قم برفع صورة الإعلان أو سكرين شوت الأرقام واضغط على زر التحليل لمشاهدة التقرير التفصيلي.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Export / Copy Action -->
+            <div id="analyzer-actions" class="hidden pt-4 border-t border-slate-800 flex items-center justify-end gap-3">
+              <button id="btn-copy-analysis" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition flex items-center gap-2">
+                <i class="fa-regular fa-copy"></i> نسخ التقرير
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: STRATEGY RECOMMENDER -->
+    <section id="tab-recommender" class="tab-content hidden space-y-6">
+      <div class="max-w-4xl mx-auto space-y-6">
+        <div class="glass-panel rounded-2xl p-6 lg:p-8 border border-slate-800 space-y-6">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-xl font-bold text-slate-100 flex items-center gap-2.5">
+              <i class="fa-solid fa-compass-drafting text-amber-400 text-2xl"></i>
+              <span>محرك تصميم الإستراتيجية المخصصة لمشروعك</span>
+            </h2>
+            <p class="text-xs md:text-sm text-slate-400 mt-1">أدخل بيانات مشروعك ليقوم الذكاء الاصطناعي ببناء الخطة التسويقية المناسبة لهيكل عملك بالضبط.</p>
+          </div>
+
+          <form id="recommender-form" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Business Type -->
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-slate-300 block">نوع النشاط التجاري:</label>
+              <select id="rec-business-type" class="w-full glass-input px-4 py-2.5 rounded-xl text-sm">
+                <option value="متجر إلكتروني (E-Commerce)">🛍️ متجر إلكتروني (E-Commerce / مبيعات أونلاين)</option>
+                <option value="خدمات واستشارات رسائل واتساب">💬 خدمات واستشارات / رسائل واتساب</option>
+                <option value="دورات وكورسات تعليمية">🎓 دورات وكورسات تعليمية (Educational Courses)</option>
+                <option value="تطبيق إلكتروني / SaaS">📱 تطبيق إلكتروني أو برمجيات (SaaS)</option>
+                <option value="عقارات أو خدمات طبية">🏢 عقارات أو عيادات وخدمات طبية</option>
+              </select>
+            </div>
+
+            <!-- Campaign Goal -->
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-slate-300 block">الهدف الرئيسي من الإعلانات:</label>
+              <select id="rec-goal" class="w-full glass-input px-4 py-2.5 rounded-xl text-sm">
+                <option value="زيادة المبيعات المباشرة">🛒 تحقيق مبيعات مباشرة بأقل CPA</option>
+                <option value="جلب رسائل واتساب واستفسارات">💬 الحصول على رسائل واستفسارات مؤهلة</option>
+                <option value="توسيع ونمو العائد ROAS">📈 تكبير الميزانية Scaling وتوسيع العائد ROAS</option>
+                <option value="جمع بيانات عملاء Leads">📋 جمع بيانات عملاء مستهدفين (Lead Generation)</option>
+              </select>
+            </div>
+
+            <!-- Budget Range -->
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-slate-300 block">الميزانية الإعلانية المتوقعة:</label>
+              <select id="rec-budget" class="w-full glass-input px-4 py-2.5 rounded-xl text-sm">
+                <option value="محدودة (أقل من 15$ يومياً)">🟢 محدودة (أقل من 15$ يومياً)</option>
+                <option value="متوسطة (15$ - 50$ يومياً)">🟡 متوسطة (15$ إلى 50$ يومياً)</option>
+                <option value="مرتفعة / توسع (أكثر من 50$ يومياً)">🔴 مرتفعة / توسع (أكثر من 50$ يومياً)</option>
+              </select>
+            </div>
+
+            <!-- Platform Preference -->
+            <div class="space-y-2">
+              <label class="text-xs font-semibold text-slate-300 block">المنصة الإعلانية المفضل التركيز عليها:</label>
+              <select id="rec-platform" class="w-full glass-input px-4 py-2.5 rounded-xl text-sm">
+                <option value="Meta Ads (Facebook & Instagram)">Meta Ads (فيسبوك وانستجرام)</option>
+                <option value="TikTok Ads">TikTok Ads</option>
+                <option value="Google Ads & Search">Google Ads (البحث واليوتيوب)</option>
+                <option value="متعدد القنوات Multi-Channel">متعدد القنوات (Multi-Channel)</option>
+              </select>
+            </div>
+
+            <!-- Notes -->
+            <div class="md:col-span-2 space-y-2">
+              <label class="text-xs font-semibold text-slate-300 block">وصف منتجك/خدمتك وأي تحديات حالية:</label>
+              <textarea id="rec-notes" rows="3" placeholder="صف منتجك هنا، مثلاً: نبيع منتجات عناية بالبشرة وسعر المنتج 350 جنيه، ونستهدف الإناث في مصر..." class="w-full glass-input p-3.5 rounded-xl text-sm resize-none"></textarea>
+            </div>
+
+            <div class="md:col-span-2">
+              <button type="submit" id="btn-generate-rec" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-orange-600 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-white font-bold text-base transition shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>توليد الخطة والإستراتيجية المخصصة 🎯</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Recommendation Output Card -->
+        <div id="rec-output-card" class="hidden glass-panel rounded-2xl p-6 lg:p-8 border border-slate-800 space-y-5 animate-fade-in">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <h3 class="text-lg font-bold text-amber-400 flex items-center gap-2">
+              <i class="fa-solid fa-award"></i>
+              <span>الإستراتيجية الموصى بها لمشروعك</span>
+            </h3>
+            <button id="btn-copy-rec" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition flex items-center gap-1.5">
+              <i class="fa-regular fa-copy"></i> نسخ الخطة
+            </button>
+          </div>
+
+          <div id="rec-output-content" class="chat-message-content space-y-4 text-slate-200 text-sm md:text-base">
+            <!-- Generated Recommendation Content -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STRATEGY DETAIL MODAL OVERLAY -->
+  <div id="strategy-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="glass-panel rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-slate-700 shadow-2xl relative p-6 md:p-8 space-y-6 my-auto">
+      <!-- Modal Close Button -->
+      <button id="btn-close-modal" class="absolute top-5 left-5 w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div id="modal-content-area">
+        <!-- Dynamic Modal Content rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- API KEY SETTINGS MODAL OVERLAY -->
+  <div id="settings-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4">
+    <div class="glass-panel rounded-2xl max-w-md w-full border border-slate-700 shadow-2xl p-6 space-y-5 relative">
+      <button id="btn-close-settings" class="absolute top-4 left-4 w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-100">إعدادات مفتاح Gemini API</h3>
+          <p class="text-xs text-slate-400">تخصيص المفتاح الخاص بك إن وجد</p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs text-slate-300 leading-relaxed">
+          يستخدم النظام مفتاح Gemini المعتمد افتراضياً، ولكن إن كان لديك مفتاح مخصص من Google AI Studio يمكنك إدخاله هنا:
+        </p>
+
+        <div class="space-y-1.5">
+          <label class="text-xs font-semibold text-slate-400 block">Gemini API Key:</label>
+          <input type="password" id="api-key-input" placeholder="AIzaSy..." class="w-full glass-input px-3.5 py-2.5 rounded-xl text-sm dir-ltr">
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button id="btn-save-key" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition">
+          حفظ التغييرات
+        </button>
+        <button id="btn-reset-key" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition">
+          إعادة للافتراضي
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass-panel border-t border-slate-800 py-4 px-6 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>© 2026 أكاديمية التسويق والمساعد الذكي (AI Marketing Hub). جميع الحقوق محفوظة.</p>
+      <p class="text-slate-400">تصميم وتطوير هندسي متكامل لمتابعة الحملات الإعلانية 🚀</p>
+    </div>
+  </footer>
+
+  <!-- App Main JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
